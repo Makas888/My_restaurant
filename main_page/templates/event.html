@@ -1,0 +1,29 @@
+<section id="events" class="events">
+    <div class="container">
+        <div class="section-title">
+            <h2>Проводимо для Вас <span>Заходи</span> у нашому ресторані</h2>
+        </div>
+        <div class="events-slider swiper">
+            <div class="swiper-wrapper">
+                {% for item in events %}
+                    <div class="swiper-slide">
+                        <div class="row event-item">
+                            <div class="col-lg-6">
+                                <img src="media/{{ item.image }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3>{{ item.title }}</h3>
+                                <div class="price">
+                                    <p><span>₴{{ item.price }}</span></p>
+                                </div>
+                                <p class="fst-italic">
+                                    {{ item.desc }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
