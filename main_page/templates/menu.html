@@ -7,12 +7,9 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="menu-filters">
+                    <li data-filter="*" class="filter-active">Всі страви</li>
                     {% for item in categories %}
-                        {% if forloop.first %}
-                            <li data-filter=".filter-cat{{ item.pk }}" class="filter-active">{{ item.title }}</li>
-                        {% else %}
-                            <li data-filter=".filter-cat{{ item.pk }}">{{ item.title }}</li>
-                        {% endif %}
+                        <li data-filter=".filter-cat{{ item.pk }}">{{ item.title }}</li>
                     {% endfor %}
                 </ul>
             </div>
