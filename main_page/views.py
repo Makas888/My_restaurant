@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Category, Dish, All_Inform, Event
+from .models import Category, Dish, All_Inform, Event, Gallery
+import random
 
 
 def main_view(request):
@@ -10,6 +11,8 @@ def main_view(request):
     whu_us = All_Inform.objects.filter(is_visible=True)
     abouts = All_Inform.objects.filter(position=False, is_visible=False)
     events = Event.objects.all()
+    galleries = Gallery.objects.all()
+    galleries = random.sample(list(galleries), 8)
 
     return render(request, 'base.html', context={
         'categories': categories,
@@ -18,4 +21,5 @@ def main_view(request):
         'whu_us': whu_us,
         'abouts': abouts,
         'events': events,
+        'galleries': galleries,
     })

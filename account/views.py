@@ -1,9 +1,23 @@
-from django.shortcuts import render
-from .forms import RegistrationUserForm
+from django.shortcuts import render, redirect
+from .forms import RegistrationUserForm, UserLoginForm
+from django.contrib.auth import authenticate, login, logout
 
 
 def login_view(request):
-    pass
+    form = UserLoginForm(request.POST or None)
+    next_get = request.GET.get('next')
+
+    if form.is_valid():
+        password = form.cleaned_data['password']
+        username = form.cleaned_data['username']
+
+        user = authenticate(username=username, password=password)
+        login(request, user)
+
+        next_post = request.POST.get('next')
+        return redirect(next_get or next_post or '/')
+
+    return render(request, 'login.html', context={'form': form})
 
 
 def registration_view(request):
@@ -18,4 +32,5 @@ def registration_view(request):
 
 
 def logout_view(request):
-    pass
+    logout(request)
+    return redirect('/')
