@@ -101,3 +101,92 @@ class Gallery(models.Model):
 
     def __str__(self):
         return f'фото-{self.pk}'
+
+
+class InformationRestaurant(models.Model):
+    is_visible = models.BooleanField('активне', default=False)
+    location_city = models.CharField('місто', max_length=50)
+    location = models.CharField('адреса', max_length=250)
+    post_index = models.CharField('поштовий індекс', max_length=15)
+    open_days_start = models.CharField('перший робочий день', max_length=15)
+    open_days_end = models.CharField('останній робочий день', max_length=15)
+    open_hours_start = models.TimeField('початок робочого дня')
+    open_hours_end = models.TimeField('кінець робочого дня')
+    e_mail_1 = models.EmailField('перший E_mail')
+    e_mail_2 = models.EmailField('другий E_mail', blank=True, default='')
+    call_1 = models.CharField('номер телефона', max_length=15)
+    call_2 = models.CharField('номер телефона', max_length=15, blank=True, default=True)
+    twitter = models.URLField(blank=True)
+    facebook = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
+    skype = models.URLField(blank=True)
+    linkedin = models.URLField(blank=True)
+
+    class Meta:
+        verbose_name = 'загальна інформація ресторану'
+        verbose_name_plural = 'загальна інформація ресторану'
+
+    def __str__(self):
+        return f'варіант {self.pk}'
+
+
+class Personal(models.Model):
+
+    def get_file_name(self, file_name: str):
+        ext = file_name.strip().split()[-1]
+        return os.path.join('images/personal', fr'{uuid.uuid4()}.{ext}')
+
+    name = models.CharField("Ім'я", max_length=20)
+    surname = models.CharField('Прізвище', max_length=25)
+    major = models.CharField('Спеціальність', max_length=50)
+    photo = models.ImageField('Фото', upload_to=get_file_name)
+    phone = models.CharField('Номер телефону', max_length=15, blank=True)
+    is_visible = models.BooleanField('Відображення', default=True)
+
+    class Meta:
+        verbose_name = 'Персонал'
+        verbose_name_plural = 'Персонал'
+        ordering = ('surname', )
+
+    def __str__(self):
+        return f'{self.name} {self.surname}'
+
+
+class Testimonials(models.Model):
+
+    def get_file_name(self, file_name: str):
+        ext = file_name.strip().split()[-1]
+        return os.path.join('images/testimonials', fr'{uuid.uuid4()}.{ext}')
+
+    name = models.CharField("ім'я", max_length=25)
+    surname = models.CharField('Прізвище', max_length=25)
+    major = models.CharField('Посада', max_length=30)
+    desc = models.TextField('Відгук', max_length=1000)
+    is_visible = models.BooleanField('Відображення', default=True)
+    photo = models.ImageField('Фото', upload_to=get_file_name)
+
+    class Meta:
+        verbose_name = 'Відгук'
+        verbose_name_plural = 'Відгуки'
+
+    def __str__(self):
+        return f'Відгук {self.pk}'
+
+
+class HeroSection(models.Model):
+
+    def get_file_name(self, file_name: str):
+        ext = file_name.strip().split()[-1]
+        return os.path.join('images/slides', fr'{uuid.uuid4()}.{ext}')
+
+    title = models.CharField('Заголовок', max_length=50, unique=True)
+    desc = models.TextField('Опис', max_length=300)
+    photo = models.ImageField('Фото', upload_to=get_file_name)
+    is_visible = models.BooleanField('Відображення', default=True)
+
+    class Meta:
+        verbose_name = 'слайди у шапці'
+        verbose_name_plural = 'слайди у шапці'
+
+    def __str__(self):
+        return f'{self.title}'
