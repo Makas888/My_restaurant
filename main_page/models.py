@@ -69,7 +69,7 @@ class All_Inform(models.Model):
         return os.path.join('images/restaurant', fr'{uuid.uuid4()}.{ext}')
 
     title = models.CharField('Заголовок', max_length=200, unique=True)
-    desc = models.TextField('Опис', max_length=10000)
+    description = models.TextField('Опис')
     link_video = models.URLField('Посилання на відео', blank=True)
     photo = models.ImageField('Фото', upload_to=get_file_name, blank=True)
     is_visible = models.BooleanField('Відображення "чому ми"', default=False)
@@ -190,3 +190,4 @@ class HeroSection(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+

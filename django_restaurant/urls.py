@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('registration/', registration_view, name='registration'),
     path('logout/', logout_view, name='logout'),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 if settings.DEBUG:
