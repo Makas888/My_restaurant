@@ -22,9 +22,11 @@ from account.views import login_view, registration_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_page.urls')),
+
     path('login/', login_view, name='login'),
     path('registration/', registration_view, name='registration'),
     path('logout/', logout_view, name='logout'),
+
     path('summernote/', include('django_summernote.urls')),
 ]
 
