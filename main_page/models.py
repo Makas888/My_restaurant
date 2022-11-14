@@ -50,7 +50,7 @@ class Event(models.Model):
 
     title = models.CharField('Назва заходу', max_length=50, unique=True, db_index=True)
     price = models.DecimalField('Вартість', max_digits=8, decimal_places=2)
-    desc = models.TextField('Опис', max_length=1000, blank=True)
+    description = models.TextField('Опис', max_length=1000, blank=True)
     image = models.ImageField('Титульне фото', upload_to=get_file_name)
     date = models.DateTimeField(blank=True)
 

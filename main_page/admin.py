@@ -10,7 +10,7 @@ class PostAdmin(SummernoteModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Dish)
-admin.site.register(Event)
+admin.site.register(Event, PostAdmin)
 admin.site.register(All_Inform, PostAdmin)
 admin.site.register(Gallery)
 admin.site.register(InformationRestaurant)

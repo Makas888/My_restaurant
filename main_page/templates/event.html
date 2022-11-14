@@ -17,7 +17,8 @@
                                     <p><span>₴{{ item.price }}</span></p>
                                 </div>
                                 <p class="fst-italic">
-                                    {{ item.desc }}
+                                    {{ item.description | safe}}
+                                </p>
                             </div>
                         </div>
                     </div>
