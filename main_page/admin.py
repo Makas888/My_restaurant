@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Category, Dish, Event, All_Inform, Gallery, InformationRestaurant,\
-    Personal, Testimonials, HeroSection
+                    Personal, Testimonials, HeroSection
 from django_summernote.admin import SummernoteModelAdmin
 
 

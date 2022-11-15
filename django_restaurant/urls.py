@@ -28,6 +28,8 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
 
     path('summernote/', include('django_summernote.urls')),
+    path('manager/', include('manager.urls'), name='manager'),
+
 ]
 
 if settings.DEBUG:

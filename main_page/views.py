@@ -1,9 +1,16 @@
-from django.shortcuts import render
-from .models import Category, Dish, All_Inform, Event, Gallery, InformationRestaurant, Personal, Testimonials, HeroSection
+from django.shortcuts import render, redirect
+from .models import Category, Dish, All_Inform, Event, Gallery, InformationRestaurant,\
+                    Personal, Testimonials, HeroSection
 import random
+from .forms import UserReservationForm
 
 
 def main_view(request):
+    form_reserve = UserReservationForm(request.POST or None)
+
+    if form_reserve.is_valid():
+        form_reserve.save()
+        return redirect('/')
 
     categories = Category.objects.filter(is_visible=True)
     dishes = Dish.objects.filter(is_visible=True, is_special=False)
@@ -19,6 +26,7 @@ def main_view(request):
     hero_sections = HeroSection.objects.filter(is_visible=True)
 
     return render(request, 'base.html', context={
+        'form_reserve': form_reserve,
         'categories': categories,
         'dishes': dishes,
         'specials': specials,

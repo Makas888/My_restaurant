@@ -1,49 +1,49 @@
 <section id="book-a-table" class="book-a-table">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Забронювати <span>Столик</span></h2>
-          <p>Скористайтеся зручною формою бронювання столику у нашому ресторані. Наш менеджер зв'яжеться з вами у найближчій час</p>
-        </div>
+          <div class="section-title">
+              <h2>Забронювати <span>Столик</span></h2>
+              <p>Скористайтеся зручною формою бронювання столику у нашому ресторані. Наш менеджер зв'яжеться з вами у найближчій час</p>
+          </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Ваше ім'я" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Ваш Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Ваш номер телефона" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" name="date" class="form-control" id="date" placeholder="Дата" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" class="form-control" name="time" id="time" placeholder="Час" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="people" placeholder="# Людей" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Повідомлення"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Відправлення</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Ваш запит на бронювання надіслано. Ми передзвонимо або надішлемо електронний лист для підтвердження бронювання. Дякую!</div>
-          </div>
-          <div class="text-center"><button type="submit">Відправити повідомлення</button></div>
-        </form>
-
+          <form method="post" role="form" class="php-email-form">
+              {% csrf_token %}
+              <div class="row">
+                  <div class="col-lg-4 col-md-6 form-group">
+                      {{ form_reserve.name }}
+                      <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                        {{ form_reserve.email }}
+                        <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                      {{ form_reserve.phone }}
+                      <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 form-group mt-3">
+                      {{ form_reserve.date_reserve }}
+                      <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 form-group mt-3">
+                      {{ form_reserve.time_reserve }}
+                      <div class="validate"></div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 form-group mt-3">
+                      {{ form_reserve.persons }}
+                      <div class="validate"></div>
+                  </div>
+              </div>
+              <div class="form-group mt-3">
+                  {{ form_reserve.message }}
+                  <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                  <div class="loading">Відправлення</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Ваш запит на бронювання надіслано. Ми передзвонимо або надішлемо електронний лист для підтвердження бронювання. Дякую!</div>
+              </div>
+              <div class="text-center"><button type="submit">Відправити повідомлення</button></div>
+          </form>
       </div>
-    </section>
+</section>

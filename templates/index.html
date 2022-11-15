@@ -67,6 +67,9 @@
           <li><a class="nav-link scrollto" href="#specials">Спеціальна пропозиція</a></li>
           <li><a class="nav-link scrollto" href="#events">Заходи</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
+            {% if 'Менеджер' in user.groups.all.0.name %}
+                <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Менеджер</a></li>
+            {% endif %}
           <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
           <li class="dropdown"><a href="#"><span>Перейти до:</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -168,7 +171,7 @@
   <script src={% static "assets/vendor/glightbox/js/glightbox.min.js" %}></script>
   <script src={% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %}></script>
   <script src={% static "assets/vendor/swiper/swiper-bundle.min.js" %}></script>
-  <script src={% static "assets/vendor/php-email-form/validate.js" %}></script>
+{#  <script src={% static "assets/vendor/php-email-form/validate.js" %}></script>#}
 
   <!-- Template Main JS File -->
   <script src={% static "assets/js/main.js" %}></script>
