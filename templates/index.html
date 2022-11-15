@@ -69,6 +69,7 @@
           <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
             {% if 'Менеджер' in user.groups.all.0.name %}
                 <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Менеджер</a></li>
+                <li><a class="nav-link scrollto" href="#gallery">Повідомлення</a></li>
             {% endif %}
           <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
           <li class="dropdown"><a href="#"><span>Перейти до:</span> <i class="bi bi-chevron-down"></i></a>
