@@ -19,3 +19,7 @@ def message_list(request):
 def add_archive(request, pk):
     UserMessage.objects.filter(pk=pk).update(archived=True)
     return redirect('user_message:message_list')
+
+
+def home(request):
+    return redirect('/')
