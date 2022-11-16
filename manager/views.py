@@ -19,3 +19,7 @@ def reservation_list(request):
 def reservation_close(request, pk):
     UserReservation.objects.filter(pk=pk).update(is_processing=True)
     return redirect('manager:reservation_list')
+
+
+def home(request):
+    return redirect('/')

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main_page.apps.MainPageConfig',
     'account.apps.AccountConfig',
     'manager.apps.ManagerConfig',
+    'user_message.apps.UserMessageConfig',
 ]
 
 MIDDLEWARE = [

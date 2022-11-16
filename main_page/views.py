@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Category, Dish, All_Inform, Event, Gallery, InformationRestaurant,\
                     Personal, Testimonials, HeroSection
 import random
-from .forms import UserReservationForm
+from .forms import UserReservationForm, UserMessageForm
 
 
 def main_view(request):
@@ -10,6 +10,12 @@ def main_view(request):
 
     if form_reserve.is_valid():
         form_reserve.save()
+        return redirect('/')
+
+    form_user_message = UserMessageForm(request.POST or None)
+
+    if form_user_message.is_valid():
+        form_user_message.save()
         return redirect('/')
 
     categories = Category.objects.filter(is_visible=True)
@@ -26,6 +32,7 @@ def main_view(request):
     hero_sections = HeroSection.objects.filter(is_visible=True)
 
     return render(request, 'base.html', context={
+        'form_user_message': form_user_message,
         'form_reserve': form_reserve,
         'categories': categories,
         'dishes': dishes,

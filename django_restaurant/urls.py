@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('summernote/', include('django_summernote.urls')),
     path('manager/', include('manager.urls'), name='manager'),
-
+    path('user_message/', include('user_message.urls'), name='user_message')
 ]
 
 if settings.DEBUG:
