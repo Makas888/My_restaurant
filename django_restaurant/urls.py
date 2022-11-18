@@ -28,6 +28,7 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
 
     path('summernote/', include('django_summernote.urls')),
+
     path('manager/', include('manager.urls'), name='manager'),
     path('user_message/', include('user_message.urls'), name='user_message')
 ]
