@@ -68,7 +68,7 @@
           <li><a class="nav-link scrollto" href="#events">Заходи</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
             {% if 'Менеджер' in user.groups.all.0.name %}
-                <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Бронювання</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Менеджер</a></li>
                 <li><a class="nav-link scrollto" href="{% url 'user_message:message_list' %}">Повідомлення</a></li>
             {% endif %}
           <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
