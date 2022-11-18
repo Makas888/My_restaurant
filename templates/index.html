@@ -59,26 +59,26 @@
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Додому</a></li>
-          <li><a class="nav-link scrollto" href="#about">Про ресторан</a></li>
-          <li><a class="nav-link scrollto" href="#menu">Меню</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Спеціальна пропозиція</a></li>
-          <li><a class="nav-link scrollto" href="#events">Заходи</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
-            {% if 'Менеджер' in user.groups.all.0.name %}
-                <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Менеджер</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'user_message:message_list' %}">Повідомлення</a></li>
-            {% endif %}
-          <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
-          <li class="dropdown"><a href="#"><span>Перейти до:</span> <i class="bi bi-chevron-down"></i></a>
+        <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
+                <li><a class="nav-link scrollto active" href="#hero">Додому</a></li>
+                <li><a class="nav-link scrollto" href="#about">Про ресторан</a></li>
+                <li><a class="nav-link scrollto" href="#menu">Меню</a></li>
+                <li><a class="nav-link scrollto" href="#specials">Спеціальна пропозиція</a></li>
+                <li><a class="nav-link scrollto" href="#events">Заходи</a></li>
+                <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
+                {% if 'Менеджер' in user.groups.all.0.name %}
+                    <li><a class="nav-link scrollto" href="{% url 'manager:reservation_list' %}">Бронювання</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'user_message:message_list' %}">Повідомлення</a></li>
+                {% endif %}
+                <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
+                <li class="dropdown"><a href="#"><span>Перейти до:</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#">Drop Down 1</a></li>
+                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
                   <li><a href="#">Deep Drop Down 3</a></li>
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
